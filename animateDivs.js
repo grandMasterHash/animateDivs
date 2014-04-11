@@ -1,15 +1,14 @@
 
-//base class
-function roboPanelBase(parent, duration){
+//base object
+function animDivBase(parent, duration){
 	this.parent = parent;
 	this.duration = duration;
 	this.isAnimated = false;
 }
 
 function animObj(parent, direction, numPanels, borderWidth, borderRadius, roundness, shadowSize){
-	//the vars parent, direction, and isAnimated can be stored in a base class
-	// for all of these objects.
-	roboPanelBase.call(this, parent);
+
+	animDivBase.call(this, parent);
 	this.direction = direction;
 	this.numPanels = numPanels;
 	this.borderWidth = (borderWidth==undefined) ? 3 : borderWidth;
@@ -85,7 +84,7 @@ function animObj(parent, direction, numPanels, borderWidth, borderRadius, roundn
 	};
 
 	this.setInitPosition = function(i, val){
-		//should be a method of the animObj class
+		//should be a method of the animObj object
 		var panels = this.panels;
 		for(var j=i+1; j<panels.length; j++){
 			var exp = "panels["+j+"].style."+this.direction+"= '"+val+"'";
@@ -115,10 +114,8 @@ function animObj(parent, direction, numPanels, borderWidth, borderRadius, roundn
 	}
 
 	this.setBGStyle = function(){
-		//what am I doing here?
 		//you want some variations in background styling
 		//this will be a styling of the divs backgound with some variation built in
-		//make them look shiny and textured
 		//this would make it possible to switch the styling of the divs between 
 		// transitions
 	};
@@ -227,8 +224,8 @@ function animObj(parent, direction, numPanels, borderWidth, borderRadius, roundn
 //objects for different types of layouts
 
 function layout(parent, duration){
-	//the base class for layouts
-	roboPanelBase.call(this, parent, duration);
+	//the base object for layouts
+	animDivBase.call(this, parent, duration);
 	this.staticPanels = new Object();
 	this.animObjects = new Object();	
 	//this.parBrdWdth = Math.floor( $(parent).css('border-width').replace('px', '') );
