@@ -42,7 +42,7 @@ function animObj(parent, direction, numPanels, borderWidth, borderRadius, roundn
 				animVal = (this.dimVal*(invI)).toString()+"%";
 			}
 		}
-		else{
+		else{ 
 			div = $(this.panels[i]);
 			animVal = (this.dimVal*i).toString()+"%";	
 		} 
